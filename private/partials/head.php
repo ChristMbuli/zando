@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+        <link rel="shortcut icon" href="../assets/img/1.png" type="image/x-icon">
+
     <title>Mbuli-Commerce</title>
     <script src="https://kit.fontawesome.com/e147eaff6b.js" crossorigin="anonymous"></script>
     <!-- Favicon-->

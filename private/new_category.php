@@ -1,16 +1,16 @@
 <?php
 session_start();
-require ('../backend/addCategory.php');
 require ('../backend/displayCategory.php');
+require ('../backend/addCategory.php');
 include ('partials/head.php');
 include ('partials/navbar.php') ?>
 
 <section class=" text-center container">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Ajouter un produit</h1>
+            <h1 class="fw-light">Ajouter une nouvelle Category</h1>
             <p class="">
-                <a href="./new_product.php" class="btn btn-primary my-2 me-3">Nouveau produit <i
+                <a href="./new_product.php" class="btn btn-primary my-2 me-3">Nouveau produit ici <i
                         class="fa-solid fa-plus"></i></a>
             </p>
         </div>

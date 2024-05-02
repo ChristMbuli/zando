@@ -28,7 +28,15 @@ if (isset($_POST['add'])) {
             // Générer un nom d'image unique basé sur le timestamp et un nombre aléatoire
             $image_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
             $image_name = time() . rand(1000, 9999) . '.' . $image_extension;
-            $picture_path = 'assets/images/' . $image_name;
+
+            // Construire le chemin absolu du répertoire cible
+            $baseDir = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'images';
+            $picture_path = $baseDir . DIRECTORY_SEPARATOR . $image_name;
+
+            // Vérifier si le répertoire cible existe, sinon le créer
+            if (!file_exists($baseDir)) {
+                mkdir($baseDir, 0777, true);
+            }
 
             // Déplacer l'image téléchargée dans le répertoire cible
             if (move_uploaded_file($_FILES['image']['tmp_name'], $picture_path)) {
@@ -38,12 +46,12 @@ if (isset($_POST['add'])) {
                 // Lier les paramètres à la requête préparée
                 $stmt_insert->bindValue(1, $categoryId, PDO::PARAM_STR);
                 $stmt_insert->bindValue(2, $title, PDO::PARAM_STR);
-                $stmt_insert->bindValue(3, $picture_path, PDO::PARAM_STR);
+                $stmt_insert->bindValue(3, 'assets/images/' . $image_name, PDO::PARAM_STR);
 
                 // Exécuter la requête préparée
                 if ($stmt_insert->execute()) {
                     $SuccessMsg = "Catégorie '$title' enregistrée avec succès.";
-                    header('Location: login.php');
+
                 } else {
                     $msgError = "Une erreur s'est produite lors de l'enregistrement de la catégorie.";
                 }

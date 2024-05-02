@@ -19,11 +19,11 @@ include ('./components/head.php') ?>
             <p class="text-dark">
                 Produits tendance, prix d'usine, excellent service
             </p>
-            <button type="button" class="btn btn-light text-dark ">
+            <button type="button" class="btn btn-light text-dark mb-3">
                 Apprence encore plus
             </button>
 
-            <a href="#product" class="learn btn btn-light shadow-0 text-primary pt-2 border ">
+            <a href="#product" class="learn btn btn-light shadow-0 text-primary pt-2 border mb-3">
                 <span class="buy pt-1 text-dark ">Achetez maintenant</span>
             </a>
             <style>
